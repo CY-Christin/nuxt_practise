@@ -1,4 +1,4 @@
-# vuex-test
+# nuxt-test
 
 ## Build Setup
 
