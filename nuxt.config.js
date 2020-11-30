@@ -11,9 +11,20 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  router: {
+    middleware:'auth',
+    extendRoutes(routes,resolve){
+      console.log(routes)
+      routes.push({
+        name:"home",
+        path:"/index",
+        component:resolve(__dirname,'pages/index.vue')
+      })
+    }
+  },
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    'assets/css/transition.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
