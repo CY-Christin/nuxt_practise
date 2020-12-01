@@ -8,9 +8,10 @@
 import AppHeader from "./app-header";
 export default {
   // middleware: "auth" //页面层级的中间件
-  // middleware() {
-  //   console.log("middleware layouts");
-  // }
+  middleware({ store, route, redirect, params, query }) {
+    // console.log("middleware layouts 全局前置守卫");
+    // redirect("/reg");
+  },
   components: {
     AppHeader
   }
