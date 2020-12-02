@@ -44,7 +44,7 @@ export default {
   buildModules: [],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ["@nuxtjs/axios", "@nuxtjs/proxy"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/proxy", "cookie-universal-nuxt"],
   axios: {
     proxy: true
   },
