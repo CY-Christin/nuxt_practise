@@ -1,6 +1,7 @@
 <template>
   <div class="detail">
     <h3>详情页</h3>
+    <h4>{{ word }}</h4>
   </div>
 </template>
 <script>
@@ -9,7 +10,12 @@ export default {
   validate({ params, query }) {
     return typeof params.id === "number";
   },
-  transition: "test"
+  transition: "test",
+  data() {
+    return {
+      word: this.$route.query.collectionName
+    };
+  }
 };
 </script>
 <style scoped>

@@ -12,9 +12,9 @@ export default function({ $axios, redirect, route, store, app: { $cookies } }) {
   //相应拦截
 
   $axios.onResponse(res => {
-    console.log("响应拦截");
-    if (res.data == "" && route.fullPath !== "/login")
+    if (!store.state.user.token && route.fullPath != "/login") {
       redirect("/login?path=" + route.fullPath);
+    }
     return res;
   });
 

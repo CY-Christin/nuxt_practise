@@ -26,7 +26,7 @@ export default {
   // },
   loading: "~/components/loading.vue",
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: ["assets/css/transition.css"],
+  css: ["assets/css/transition.css", "element-ui/lib/theme-chalk/index.css"],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
@@ -34,7 +34,12 @@ export default {
     {
       src: "~/plugins/axios",
       ssr: true
-    }
+    },
+    {
+      src: "~/plugins/element-ui",
+      ssr: true //不支持ssr的插件只会在客户端运行不要给true
+    },
+    "~/plugins/mixin"
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -57,5 +62,7 @@ export default {
     }
   },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {
+    transpile: [/^element-ui/]
+  }
 };

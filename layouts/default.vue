@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-if="bNav"></app-header>
     <Nuxt />
   </div>
 </template>
@@ -11,6 +11,23 @@ export default {
   middleware({ store, route, redirect, params, query }) {
     // console.log("middleware layouts 全局前置守卫");
     // redirect("/reg");
+  },
+  data() {
+    return {
+      bNav: true
+    };
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(route) {
+        if (/login|reg/.test(route.path)) {
+          this.bNav = false;
+        } else {
+          this.bNav = true;
+        }
+      }
+    }
   },
   components: {
     AppHeader

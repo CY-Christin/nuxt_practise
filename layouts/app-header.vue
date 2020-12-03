@@ -1,15 +1,53 @@
 <template>
-  <nav>
-    <nuxt-link to="/index" active-class="app_header--active">首页</nuxt-link>
-    <nuxt-link to="/goods" active-class="app_header--active">商品</nuxt-link>
-    <nuxt-link to="/user" active-class="app_header--active">用户</nuxt-link>
-    <nuxt-link to="/login" active-class="app_header--active">登录</nuxt-link>
-    <nuxt-link to="/reg" active-class="app_header--active">注册</nuxt-link>
-  </nav>
+  <el-menu
+    :default-active="activeIndex"
+    @select="handleSelect"
+    active-text-color="#399"
+    mode="horizontal"
+  >
+    <el-menu-item
+      v-for="(item, index) of navs"
+      :key="index"
+      :index="index + ''"
+      >{{ item.title }}</el-menu-item
+    >
+  </el-menu>
 </template>
-<style scoped>
-.app_header--active {
-  background: #399;
-  color: #fff;
-}
-</style>
+<script>
+export default {
+  data() {
+    return {
+      activeIndex: "-1",
+      navs: [
+        { path: "/index", title: "首页" },
+        { path: "/goods", title: "商品" },
+        { path: "/user", title: "用户" }
+      ]
+    };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      this.$router.push(this.navs[key].path);
+    }
+  },
+  watch: {
+    $route: {
+      immediate: true,
+      handler(route) {
+        let find = false;
+        this.navs.map((item, index) => {
+          if (item.path == "/") {
+            this.$router.push({ name: "root" });
+          }
+          if (route.path == item.path) {
+            this.activeIndex = index + "";
+            find = true;
+          }
+        });
+        if (!find) this.activeIndex = "-1";
+      }
+    }
+  }
+};
+</script>
+<style scoped></style>
