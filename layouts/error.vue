@@ -5,8 +5,13 @@
     <button @click="$router.replace('/index')">跳转到首页</button>
   </div>
 </template>
-<script>
-export default {
-  props: ["error"]
-};
+<script lang="ts">
+import { Vue, Component, Prop } from "vue-property-decorator";
+@Component
+export default class Error extends Vue {
+  @Prop() readonly error: string | undefined;
+}
+// export default {
+//   props: ["error"]
+// };
 </script>

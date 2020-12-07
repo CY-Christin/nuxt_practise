@@ -13,41 +13,71 @@
     >
   </el-menu>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      activeIndex: "-1",
-      navs: [
-        { path: "/index", title: "首页" },
-        { path: "/goods", title: "商品" },
-        { path: "/user", title: "用户" }
-      ]
-    };
-  },
-  methods: {
-    handleSelect(key, keyPath) {
-      this.$router.push(this.navs[key].path);
-    }
-  },
-  watch: {
-    $route: {
-      immediate: true,
-      handler(route) {
-        let find = false;
-        this.navs.map((item, index) => {
-          if (item.path == "/") {
-            this.$router.push({ name: "root" });
-          }
-          if (route.path == item.path) {
-            this.activeIndex = index + "";
-            find = true;
-          }
-        });
-        if (!find) this.activeIndex = "-1";
-      }
-    }
+<script lang="ts">
+//装饰器Component Watch
+import { Vue, Component, Watch } from "vue-property-decorator";
+import { Route } from "vue-router";
+type TNavs = { path: string; title: string };
+@Component
+export default class AppHeader extends Vue {
+  activeIndex: string = "-1";
+  navs: TNavs[] = [
+    { path: "/index", title: "首页" },
+    { path: "/goods", title: "商品" },
+    { path: "/user", title: "用户" }
+  ];
+  handleSelect(key: number): void {
+    this.$router.push(this.navs[key].path);
   }
-};
+  @Watch("$route", { immediate: true, deep: true })
+  onRouteChange(route: Route) {
+    let find = false;
+    this.navs.map((item, index) => {
+      if (item.path == "/") {
+        this.$router.push({ name: "root" });
+      }
+      if (route.path == item.path) {
+        this.activeIndex = index + "";
+        find = true;
+      }
+    });
+    if (!find) this.activeIndex = "-1";
+  }
+}
+// export default {
+//   data() {
+//     return {
+//       activeIndex: "-1",
+//       navs: [
+//         { path: "/index", title: "首页" },
+//         { path: "/goods", title: "商品" },
+//         { path: "/user", title: "用户" }
+//       ]
+//     };
+//   },
+//   methods: {
+//     handleSelect(key, keyPath) {
+//       this.$router.push(this.navs[key].path);
+//     }
+//   },
+//   watch: {
+//     $route: {
+//       immediate: true,
+//       handler(route) {
+//         let find = false;
+//         this.navs.map((item, index) => {
+//           if (item.path == "/") {
+//             this.$router.push({ name: "root" });
+//           }
+//           if (route.path == item.path) {
+//             this.activeIndex = index + "";
+//             find = true;
+//           }
+//         });
+//         if (!find) this.activeIndex = "-1";
+//       }
+//     }
+//   }
+// };
 </script>
 <style scoped></style>

@@ -4,35 +4,57 @@
     <Nuxt />
   </div>
 </template>
-<script>
-import AppHeader from "./app-header";
-export default {
-  // middleware: "auth" //页面层级的中间件
-  middleware({ store, route, redirect, params, query }) {
-    // console.log("middleware layouts 全局前置守卫");
-    // redirect("/reg");
-  },
-  data() {
-    return {
-      bNav: true
-    };
-  },
-  watch: {
-    $route: {
-      immediate: true,
-      handler(route) {
-        if (/login|reg/.test(route.path)) {
-          this.bNav = false;
-        } else {
-          this.bNav = true;
-        }
-      }
-    }
-  },
+<script lang="ts">
+import { Vue, Component, Watch } from "vue-property-decorator";
+import { Route } from "vue-router";
+import AppHeader from "./app-header.vue";
+@Component({
+  // middleware({ store, route, redirect, params, query }) {
+  //   console.log("middleware layouts 全局前置守卫");
+  //   redirect("/reg");
+  // },
   components: {
     AppHeader
   }
-};
+})
+export default class Default extends Vue {
+  bNav: boolean = true;
+  @Watch("$route", { immediate: true })
+  onRouteChange(route: Route) {
+    if (/login|reg/.test(route.path)) {
+      this.bNav = false;
+    } else {
+      this.bNav = true;
+    }
+  }
+}
+// export default {
+//   // middleware: "auth" //页面层级的中间件
+//   middleware({ store, route, redirect, params, query }) {
+//     // console.log("middleware layouts 全局前置守卫");
+//     // redirect("/reg");
+//   },
+//   data() {
+//     return {
+//       bNav: true
+//     };
+//   },
+//   watch: {
+//     $route: {
+//       immediate: true,
+//       handler(route) {
+//         if (/login|reg/.test(route.path)) {
+//           this.bNav = false;
+//         } else {
+//           this.bNav = true;
+//         }
+//       }
+//     }
+//   },
+//   components: {
+//     AppHeader
+//   }
+// };
 </script>
 <style>
 html {
