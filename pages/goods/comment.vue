@@ -19,10 +19,18 @@
     >
     <nuxt-link to="/goods/comment/3?a=1&b=2">评论03</nuxt-link>
     <nuxt />
+    <hr />
+    <div v-direct1="'red'">direct1</div>
+    <div v-direct2>{{ title }}</div>
   </div>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      title: "数据"
+    };
+  },
   mounted() {
     this.$show();
   }

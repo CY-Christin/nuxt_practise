@@ -14,3 +14,17 @@
     <nuxt />
   </div>
 </template>
+<script>
+export default {
+  head() {
+    return {
+      meta: [{ name: "keywords", content: this.title }]
+    };
+  },
+  data() {
+    return {
+      title: "商品主页"
+    };
+  }
+};
+</script>

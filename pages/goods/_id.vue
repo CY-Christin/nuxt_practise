@@ -15,6 +15,9 @@ export default {
     return {
       word: this.$route.query.collectionName
     };
+  },
+  head() {
+    return this.$seo(this.word, this.word, [{}]);
   }
 };
 </script>

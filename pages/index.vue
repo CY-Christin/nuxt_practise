@@ -28,6 +28,7 @@
     <div>index getters:{{ getNav }}</div>
     <div>index state:{{ bNav }}</div>
     <div>user state:{{ msg }}</div>
+    <h4>内部资源指向</h4>
   </div>
 </template>
 
