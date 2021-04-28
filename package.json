@@ -20,5 +20,11 @@
     "@nuxt/typescript-build": "^2.0.3",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.1.2"
+  },
+  "config":{
+    "nuxt":{
+      "host":"localhost",
+      "port":"3001"
+    }
   }
 }
