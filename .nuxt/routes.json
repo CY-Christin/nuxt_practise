@@ -1,0 +1,79 @@
+[
+  {
+    "name": "goods",
+    "path": "/goods",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/goods/index.vue",
+    "chunkName": "pages/goods/index",
+    "_name": "_ca7c2fda"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_0327e423"
+  },
+  {
+    "name": "reg",
+    "path": "/reg",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/reg.vue",
+    "chunkName": "pages/reg",
+    "_name": "_6470604e"
+  },
+  {
+    "name": "user",
+    "path": "/user",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/user.vue",
+    "chunkName": "pages/user",
+    "_name": "_460a4601"
+  },
+  {
+    "name": "weiPic",
+    "path": "/weiPic",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/weiPic.vue",
+    "chunkName": "pages/weiPic",
+    "_name": "_944eb636"
+  },
+  {
+    "path": "/goods/comment",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/goods/comment.vue",
+    "chunkName": "pages/goods/comment",
+    "children": [
+      {
+        "name": "goods-comment",
+        "path": "",
+        "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/goods/comment/index.vue",
+        "chunkName": "pages/goods/comment/index",
+        "_name": "_1848b763"
+      },
+      {
+        "name": "goods-comment-uid",
+        "path": ":uid",
+        "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/goods/comment/_uid.vue",
+        "chunkName": "pages/goods/comment/_uid",
+        "_name": "_3f8244e0"
+      }
+    ],
+    "_name": "_5e2a58e0"
+  },
+  {
+    "name": "goods-id",
+    "path": "/goods/:id",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/goods/_id.vue",
+    "chunkName": "pages/goods/_id",
+    "_name": "_57c0d33b"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_3980410c"
+  },
+  {
+    "name": "home",
+    "path": "/index",
+    "component": "/Users/Mac2015/work/code/vue/nuxt_practise/pages/index.vue",
+    "_name": "_3980410c"
+  }
+]
