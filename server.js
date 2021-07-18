@@ -9,7 +9,9 @@ app.use(bodyParse.urlencoded({ extended: false }));
 app.use(bodyParse.json());
 
 const mysql = require("mysql");
-const connection = mysql.createConnection({});
+const connection = mysql.createConnection({
+    //服务器连接配置 07.18
+});
 // console.log(connection);
 // 查询;
 app.get("/api/find", (req, res, next) => {
